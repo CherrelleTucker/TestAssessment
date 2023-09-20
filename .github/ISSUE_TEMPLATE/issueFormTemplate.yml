@@ -28,7 +28,7 @@ body:
     attributes:
       label: Acceptance Criteria
       description: What will be shown to to team to demonstrate acceptance criteria are complete
-      placeholder: - [] your checklist goes here
+      placeholder: your checklist goes here
     validations:
       required: true
   - type: textarea
