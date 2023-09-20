@@ -17,7 +17,7 @@ body:
   - type: textarea
     id: implementation-considerations
     attributes:
-      label: Implementation Considerations
+      label: Implementation Blockers or Dependencies
       description: |
         Points that need to be considered when developing this feature/writing this doc
       value: "- type your first consideration here"
@@ -26,15 +26,15 @@ body:
   - type: textarea
     id: deliverable
     attributes:
-      label: Deliverable
+      label: Acceptance Criteria
       description: What will be shown to to team to demonstrate acceptance criteria are complete
-      placeholder: your text goes here
+      placeholder: - [] your checklist goes here
     validations:
       required: true
   - type: textarea
-    id: dependencies
+    id: related
     attributes:
-      label: Dependencies
+      label: Related Issues
       description: |
         Add cards on which this issue depends
         Github automatically provides a list of possible issues if you start by typing a `#`
