@@ -41,4 +41,4 @@ body:
       value: depends on
     validations:
       required: false
-projects: @Test Assessment
+projects: Test Assessment
