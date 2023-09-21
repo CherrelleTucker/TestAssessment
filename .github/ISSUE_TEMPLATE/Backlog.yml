@@ -1,7 +1,7 @@
 name: Backlog Issue Form
 description: Create an issue for a task that is not actively being worked on and has not yet been assigned to a milestone
 title: "Backlog:"
-projects: Test Assessment
+projects: "Test Assessment"
 body:
   - type: markdown
     attributes:
@@ -39,7 +39,7 @@ body:
       description: |
         Add cards on which this issue depends
         Github automatically provides a list of possible issues if you start by typing a `#`
-      value: depends on
+      value: "depends on/related"
     validations:
       required: false
 
