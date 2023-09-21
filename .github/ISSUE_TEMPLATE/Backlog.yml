@@ -1,7 +1,7 @@
 name: Backlog Issue Form
 description: Create an issue for a task that is not actively being worked on and has not yet been assigned to a milestone
 title: "Backlog:"
-projects: "Test Assessment"
+projects: "github/3"
 body:
   - type: markdown
     attributes:
