@@ -1,6 +1,6 @@
 name: Issue
 description: Create an Issue
-title: M#Q#(TaskA.Subtask1): ISSUE TITLE
+title: MQ(TaskA.Subtask1): ISSUE TITLE
 projects: Test Assessment
 body:
   - type: markdown
