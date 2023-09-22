@@ -43,8 +43,7 @@ body:
     attributes:
       label: Related Issues
       description: |
-        Add cards on which this issue depends
-        Github automatically provides a list of possible issues if you start by typing a `#`
+        Add cards to which this issue is related for reference. Github automatically provides a list of possible issues if you start by typing a `#`
       placeholder: depends on/related
     validations:
       required: false
