@@ -1,6 +1,7 @@
 name: Issue
 description: Create an Issue
 title: "ADD THE ISSUE TITLE HERE"
+projects: Test Assessment
 body:
   - type: markdown
     attributes:
