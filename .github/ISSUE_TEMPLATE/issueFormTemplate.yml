@@ -10,17 +10,17 @@ body:
   - type: dropdown
     id: Milestones
     attributes:
-      label: What Milestone does this issue apply to?
+      label: What Milestone does this issue apply to? If issue is unrelated to previously listed Milestones, select External Work Request and provide full details and justification.
       options:
-        - M1 (description)
-        - M2 (description)
-        - M3 (description)
-        - M4 (description)
-        - M5 (description)
-        - M6 (description)
+        - M1 (Develop and administer Asana)
+        - M2 (Develop and administer the Report Generation Tool (RGT))
+        - M3 (Support tri-agency SNWG assessment teams)
+        - M4 (Contribute to NASAs OMB presentation)
+        - M5 (Support NASAs SNWG principal)
+        - M6 (Conduct lessons learned retrospective)
         - Backlog
         - External Work Request
-      default: 0
+      default: 1
     validations:
       required: true
   - type: dropdown
