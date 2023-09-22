@@ -43,7 +43,14 @@ body:
     attributes:
       label: Description
       description: Add two to three sentences that explain the context of this issue and what it will achieve.
-      placeholder: your text goes here
+      placeholder: Questions to consider when completing this section...
+        - What is the motivation for this issue? 
+        - Is there any needed background knowledge that would be helpful to the assignee? 
+        - Is there a specific requestor for this issue? 
+        - Are there time constraints?
+        - What are the possible steps to completion? 
+        - Who are the anticipated assignees? 
+        - What problem will this issue solve?  
     validations:
       required: true
   - type: textarea
