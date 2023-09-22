@@ -21,7 +21,6 @@ body:
       label: Deliverable
       description: What will be shown to to team to demonstrate acceptance criteria are complete
       placeholder: your tasklist goes here
-      value: - [ ] 
     validations:
       required: true
   - type: textarea
