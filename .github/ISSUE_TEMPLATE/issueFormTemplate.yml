@@ -7,9 +7,9 @@ body:
       value: |
         This is the Issue template! The values you add will be converted to a properly formatted Issue.
   - type: dropdown
-      id: "Milestone"
+      id: Milestone
       attributes:
-        label: milestone
+        label: Fiscal Year Milestone
         description: Which Milestone does this issue apply to?
         options:
           - Milestone 1  
