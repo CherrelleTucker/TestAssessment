@@ -7,7 +7,7 @@ body:
       value: |
         This is the Issue template! The values you add will be converted to a properly formatted Issue.
   - type: dropdown
-      id: milestone
+      id: "Milestone"
       attributes:
         label: milestone
         description: Which Milestone does this issue apply to?
