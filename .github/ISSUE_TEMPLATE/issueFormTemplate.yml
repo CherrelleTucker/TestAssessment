@@ -75,8 +75,7 @@ body:
     attributes:
       label: Related Issues
       description: |
-        Add cards on which this issue depends
         Github automatically provides a list of possible issues if you start by typing a `#`
-      placeholder: depends on
+      placeholder: related issues here if applicable
     validations:
       required: false
