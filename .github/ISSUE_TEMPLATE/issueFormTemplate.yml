@@ -1,6 +1,7 @@
 name: Issue
 description: Create an Issue
-title: ADD THE ISSUE TITLE HERE
+title: 
+  placeholder: ADD THE ISSUE TITLE HERE
 projects: Test Assessment
 body:
   - type: markdown
@@ -51,7 +52,7 @@ body:
     attributes:
       label: Deliverable
       description: What will be shown to to team to demonstrate acceptance criteria are complete
-      placeholder: your tasklist goes here
+      placeholder: Acceptance Criteria in the form of a tasklist. Once the issue has been created, individual tasks can be converted to issues if needed. 
     validations:
       required: true
   - type: textarea
@@ -60,7 +61,7 @@ body:
       label: Implementation Blockers or Dependencies
       description: |
         Points that need to be considered when developing this feature/writing this doc
-      value: "- type your first consideration here"
+      placeholder: Why have you selected multiple quarters? What other organizations or resources does this issue depend on to be completed?
     validations:
       required: true
   - type: textarea
