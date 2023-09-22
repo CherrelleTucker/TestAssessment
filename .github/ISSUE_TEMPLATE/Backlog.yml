@@ -1,6 +1,6 @@
-name: Issue Form for evaluation
+name: Backlog Issue Form
 description: Create an Issue
-title: MQ(TaskA.Subtask1) ISSUE TITLE
+title: "Backlog: "
 projects: Test Assessment
 body:
   - type: markdown
