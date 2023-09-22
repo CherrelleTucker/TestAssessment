@@ -7,6 +7,35 @@ body:
     attributes:
       value: |
         This is the Issue template! The values you add will be converted to a properly formatted Issue.
+  - type: dropdown
+    id: Milestones
+    attributes:
+      label: What Milestone does this issue apply to?
+      options:
+        - M1 (description)
+        - M2 (description)
+        - M3 (description)
+        - M4 (description)
+        - M5 (description)
+        - M6 (description)
+        - Backlog
+        - External Work Request
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: Quarter
+    attributes:
+      label: What Quarter does this issue apply to?
+      multiple: true
+      options:
+        - Q1 (1 Oct to 31 Dec)
+        - Q2 (1 Jan to 31 Mar)
+        - Q3 (1 Apr to 30 Jun)
+        - Q4 (1 Jul to 30 Sep)
+      default: 0
+    validations:
+      required: true
   - type: textarea
     id: description
     attributes:
