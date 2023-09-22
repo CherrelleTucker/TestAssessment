@@ -59,6 +59,7 @@ body:
       label: Deliverable
       description: What will be shown to to team to demonstrate acceptance criteria are complete
       placeholder: Acceptance Criteria in the form of a tasklist. Once the issue has been created, individual tasks can be converted to issues if needed. 
+      value: "- [ ]"
     validations:
       required: true
   - type: textarea
