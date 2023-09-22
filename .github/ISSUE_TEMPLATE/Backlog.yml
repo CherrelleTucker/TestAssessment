@@ -1,4 +1,4 @@
-name: Submit Backlog Issue
+name: "Submit Backlog Issue"
 description: Create an issue for a task that is not actively being worked on and has not yet been assigned to a milestone
 title: "Backlog:"
 body:
