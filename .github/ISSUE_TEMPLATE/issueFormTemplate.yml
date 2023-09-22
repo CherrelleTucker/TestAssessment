@@ -7,34 +7,34 @@ body:
       value: |
         This is the Issue template! The values you add will be converted to a properly formatted Issue.
   - type: dropdown
-      id: Milestone
-      attributes:
-        label: Fiscal Year Milestone
-        description: Which Milestone does this issue apply to?
-        options:
-          - Milestone 1  
-          - Milestone 2
-          - Milestone 3
-          - Milestone 4
-          - Milestone 5
-          - Milestone 6
-        default: 0
-      validations:
-        required: true
-  - type: dropdown
-     id: Quarter
-      attributes:
-      label: Quarter
-      description: What quarter of the Milestone does this issue apply to?
-      multiple: true
-      options:
-        - Q1 (Oct - Dec)
-        - Q2 (Jan - March)
-        - Q3 (Apr - Jun)
-        - Q4 (Jul - Sep)
+     id: Milestone
+     attributes:
+       label: Fiscal Year Milestone
+       description: Which Milestone does this issue apply to?
+       options:
+        - Milestone 1  
+        - Milestone 2
+        - Milestone 3
+        - Milestone 4
+        - Milestone 5
+        - Milestone 6
       default: 0
     validations:
-      required: true  
+      required: true
+- type: dropdown
+   id: Quarter
+    attributes:
+    label: Quarter
+    description: What quarter of the Milestone does this issue apply to?
+    multiple: true
+    options:
+      - Q1 (Oct - Dec)
+      - Q2 (Jan - March)
+      - Q3 (Apr - Jun)
+      - Q4 (Jul - Sep)
+    default: 0
+  validations:
+    required: true  
   - type: textarea
     id: description
     attributes:
