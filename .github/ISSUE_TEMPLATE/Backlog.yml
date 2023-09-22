@@ -1,11 +1,12 @@
-name: Backlog Issue Form
-description: Create an issue for a task that is not actively being worked on and has not yet been assigned to a milestone
-title: "Backlog:"
+name: Issue Form for evaluation
+description: Create an Issue
+title: MQ(TaskA.Subtask1) ISSUE TITLE
+projects: Test Assessment
 body:
   - type: markdown
     attributes:
       value: |
-        This is the Issue template! The values you add will be converted to a properly formatted Issue.
+        This is the Issue template! The values you add will be converted to a properly formatted Issue for the SNWG Assessment Project.
   - type: textarea
     id: description
     attributes:
@@ -22,29 +23,37 @@ body:
     validations:
       required: true
   - type: textarea
+    id: Examples
+    attributes:
+      label: Examples
+      description: if applicable, include examples of work that the issue will result in or use in development.
+      placeholder: This type of document is what I am looking for...
+    validations:
+      required: false
+  - type: textarea
     id: deliverable
     attributes:
-      label: Acceptance Criteria
+      label: Deliverable
       description: Acceptance Criteria in the form of a tasklist. Once the issue has been created, individual tasks can be converted to issues if needed. 
-      value: " - [ ] "
+      value: "- [ ] "
     validations:
       required: true
- - type: textarea
-  id: implementation-considerations
-  attributes:
-    label: Implementation Blockers or Dependencies
-    description: |
-      Points that need to be considered when developing this feature/writing this doc
-    value: "- type your first consideration here"
-  validations:
-    required: true
   - type: textarea
-    id: related
+    id: implementation-considerations
+    attributes:
+      label: Implementation Blockers or Dependencies
+      description: |
+        Points that need to be considered when developing this feature/writing this doc
+      placeholder: Why have you selected multiple quarters? What other organizations or resources does this issue depend on to be completed?
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
     attributes:
       label: Related Issues
       description: |
-        Add cards to which this issue is related for reference. Github automatically provides a list of possible issues if you start by typing a `#`
-      placeholder: depends on/related
+        Add cards on which this issue depends
+        Github automatically provides a list of possible issues if you start by typing a `#`
+      placeholder: depends on
     validations:
       required: false
-
