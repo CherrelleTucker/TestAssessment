@@ -10,8 +10,8 @@ body:
   - type: dropdown
     id: Milestones
     attributes:
-      label: What Milestone does this issue apply to? 
-      If issue is unrelated to previously listed Milestones, select External Work Request and provide full details and justification.
+      label: Milestone
+      description: What Milestone does this issue apply to? If issue is unrelated to previously listed Milestones, select External Work Request and provide full details and justification.
       options:
         - M1 (Develop and administer Asana)
         - M2 (Develop and administer the Report Generation Tool (RGT))
@@ -27,8 +27,8 @@ body:
   - type: dropdown
     id: Quarter
     attributes:
-      label: What Quarter does this issue apply to? 
-      If selecting multiple quarters, please include the expected task breakdown across quarters in your task description or implementation considerations. 
+      label: Quarter
+      description: What Quarter does this issue apply to? If selecting multiple quarters, please include the expected task breakdown across quarters in your task description or implementation considerations. 
       multiple: true
       options:
         - Q1 (1 Oct to 31 Dec)
