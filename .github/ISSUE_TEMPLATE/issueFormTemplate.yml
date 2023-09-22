@@ -35,7 +35,7 @@ body:
         - Q2 (1 Jan to 31 Mar)
         - Q3 (1 Apr to 30 Jun)
         - Q4 (1 Jul to 30 Sep)
-      default: 1
+      default: 0
     validations:
       required: true
   - type: textarea
