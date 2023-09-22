@@ -7,10 +7,10 @@ body:
       value: |
         This is the Issue template! The values you add will be converted to a properly formatted Issue.
   - type: dropdown
-      id: Milestone
+      id: milestone
       attributes:
-        label: Milestone
-        description: Which milestone does this issue apply to?
+        label: milestone
+        description: Which Milestone does this issue apply to?
         options:
           - Milestone 1  
           - Milestone 2
@@ -21,11 +21,12 @@ body:
         default: 0
       validations:
         required: true
-   - type: dropdown
-    id: Quarter
-    attributes:
+  - type: dropdown
+     id: Quarter
+      attributes:
       label: Quarter
       description: What quarter of the Milestone does this issue apply to?
+      multiple: true
       options:
         - Q1 (Oct - Dec)
         - Q2 (Jan - March)
