@@ -6,21 +6,21 @@ body:
     attributes:
       value: |
         This is the Issue template! The values you add will be converted to a properly formatted Issue.
-   - type: dropdown
-    id: Milestone
-    attributes:
-      label: Milestone
-      description: Which milestone does this issue apply to?
-      options:
-        - Milestone 1  
-        - Milestone 2
-        - Milestone 3
-        - Milestone 4
-        - Milestone 5
-        - Milestone 6
-      default: 0
-    validations:
-      required: true
+  - type: dropdown
+      id: Milestone
+      attributes:
+        label: Milestone
+        description: Which milestone does this issue apply to?
+        options:
+          - Milestone 1  
+          - Milestone 2
+          - Milestone 3
+          - Milestone 4
+          - Milestone 5
+          - Milestone 6
+        default: 0
+      validations:
+        required: true
    - type: dropdown
     id: Quarter
     attributes:
@@ -33,7 +33,7 @@ body:
         - Q4 (Jul - Sep)
       default: 0
     validations:
-      required: true
+      required: true  
   - type: textarea
     id: description
     attributes:
@@ -69,4 +69,3 @@ body:
       value: depends on
     validations:
       required: false
-projects: Test Assessment
