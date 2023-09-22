@@ -1,4 +1,4 @@
-name: Issue Form
+name: Issue
 description: Create an Issue
 title: "ADD THE ISSUE TITLE HERE"
 body:
@@ -6,41 +6,21 @@ body:
     attributes:
       value: |
         This is the Issue template! The values you add will be converted to a properly formatted Issue.
-  - type: dropdown
-    id: Milestone
-    attributes:
-      label: Fiscal Year Milestone
-      description: Which Milestone does this issue apply to?
-      options:
-       - Milestone 1  
-       - Milestone 2
-       - Milestone 3
-       - Milestone 4
-       - Milestone 5
-       - Milestone 6
-    default: 0
-  validations:
-    required: true
-- type: dropdown
-   id: Quarter
-    attributes:
-    label: Quarter
-    description: What quarter of the Milestone does this issue apply to?
-    multiple: true
-    options:
-      - Q1 (Oct - Dec)
-      - Q2 (Jan - March)
-      - Q3 (Apr - Jun)
-      - Q4 (Jul - Sep)
-    default: 0
-  validations:
-    required: true  
   - type: textarea
     id: description
     attributes:
       label: Description
       description: Add two to three sentences that explain the context of this issue and what it will achieve.
       placeholder: your text goes here
+    validations:
+      required: true
+  - type: textarea
+    id: deliverable
+    attributes:
+      label: Deliverable
+      description: What will be shown to to team to demonstrate acceptance criteria are complete
+      placeholder: your tasklist goes here
+      value: - [ ] 
     validations:
       required: true
   - type: textarea
@@ -53,20 +33,12 @@ body:
     validations:
       required: true
   - type: textarea
-    id: deliverable
-    attributes:
-      label: Acceptance Criteria
-      description: What will be shown to to team to demonstrate acceptance criteria are complete
-      placeholder: your checklist goes here
-    validations:
-      required: true
-  - type: textarea
-    id: related
+    id: dependencies
     attributes:
       label: Related Issues
       description: |
         Add cards on which this issue depends
         Github automatically provides a list of possible issues if you start by typing a `#`
-      value: depends on
+      placeholder: depends on
     validations:
       required: false
