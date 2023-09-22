@@ -11,26 +11,33 @@ body:
     attributes:
       label: Description
       description: Add two to three sentences that explain the context of this issue and what it will achieve.
-      placeholder: your text goes here
-    validations:
-      required: true
-  - type: textarea
-    id: implementation-considerations
-    attributes:
-      label: Implementation Blockers or Dependencies
-      description: |
-        Points that need to be considered when developing this feature/writing this doc
-      value: "- type your first consideration here"
+      placeholder: Questions to consider when completing this section...
+        - What is the motivation for this issue? 
+        - Is there any needed background knowledge that would be helpful to the assignee? 
+        - Is there a specific requestor for this issue? 
+        - Are there time constraints?
+        - What are the possible steps to completion? 
+        - Who are the anticipated assignees? 
+        - What problem will this issue solve?  
     validations:
       required: true
   - type: textarea
     id: deliverable
     attributes:
       label: Acceptance Criteria
-      description: What will be shown to to team to demonstrate acceptance criteria are complete
-      placeholder: your checklist goes here
+      description: Acceptance Criteria in the form of a tasklist. Once the issue has been created, individual tasks can be converted to issues if needed. 
+      value: " - [ ] "
     validations:
       required: true
+ - type: textarea
+  id: implementation-considerations
+  attributes:
+    label: Implementation Blockers or Dependencies
+    description: |
+      Points that need to be considered when developing this feature/writing this doc
+    value: "- type your first consideration here"
+  validations:
+    required: true
   - type: textarea
     id: related
     attributes:
@@ -38,7 +45,7 @@ body:
       description: |
         Add cards on which this issue depends
         Github automatically provides a list of possible issues if you start by typing a `#`
-      value: "depends on/related"
+      placeholder: depends on/related
     validations:
       required: false
 
