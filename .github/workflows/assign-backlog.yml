@@ -14,7 +14,7 @@ jobs:
         id: check_issue_title
         run: |
           issue_title="${{ github.event.issue.title }}"
-          if [[ $issue_title == *Backlog* ]]; then
+          if [[ $issue_title == *Backlog:* ]]; then
             echo "::set-output name=assign_issue::true"
           else
             echo "::set-output name=assign_issue::false"
