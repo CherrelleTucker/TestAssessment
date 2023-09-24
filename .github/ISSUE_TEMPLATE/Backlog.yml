@@ -57,5 +57,4 @@ body:
     validations:
       required: false
 projects: Test Assessment
-  status: Backlog
-milestone: Backlog
+milestone: Backlog 
