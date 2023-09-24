@@ -1,0 +1,7 @@
+- name: Issue Milestone Assignment
+  # You may pin to the exact commit or the version.
+  # uses: greboid/issue-milestone-manager@36f0d155f3ee3988861dfed683c8cd0d990979c3
+  uses: greboid/issue-milestone-manager@v2.0.1
+  with:
+    # Github token to authenticate against
+    token: # default is 
