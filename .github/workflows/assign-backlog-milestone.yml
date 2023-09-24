@@ -3,7 +3,7 @@ name: Assign Backlog Issues to Milestone 7
 on:
   issues:
     types:
-      - created
+      - opened
 
 jobs:
   assign_to_backlog_milestone:
