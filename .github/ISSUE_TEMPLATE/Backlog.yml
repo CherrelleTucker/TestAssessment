@@ -2,7 +2,6 @@ name: Backlog Issue Form
 description: Create an Issue
 title: "Backlog: "
 projects: Test Assessment
-milestone: 7 
 body:
   - type: markdown
     attributes:
