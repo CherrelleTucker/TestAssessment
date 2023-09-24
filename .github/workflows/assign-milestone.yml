@@ -26,20 +26,3 @@ jobs:
           curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
             -d "{\"milestone\": 7}" \
             "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/issues/$ISSUE_NUMBER"
-
-             - name: Check if issue title contains "M1"
-               id: check_title
-               run: echo ::set-output name=contains_backlog::$(echo "${{ github.event.issue.title }}" | grep -c "M1")
-        
-             - name: Assign to Milestone 1 (FY23 Milestone 1: Develop and administer Asana)
-               if: steps.check_title.outputs.contains_backlog == '1'
-               run: |
-                 GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
-                 ISSUE_NUMBER=${{ github.event.issue.number }}
-                 REPO_OWNER=${{ github.repository_owner }}
-                 REPO_NAME=${{ github.repository }}
-                
-                 echo "Assigning issue $ISSUE_NUMBER to Milestone 7 (Backlog)"
-                 curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
-                   -d "{\"milestone\": 1}" \
-                   "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/issues/$ISSUE_NUMBER"
