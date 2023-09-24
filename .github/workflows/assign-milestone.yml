@@ -1,4 +1,4 @@
-name: Assign Milestones based on Keywords
+name: Assign Backlog Issues to Milestone 7
 
 on:
   issues:
@@ -6,42 +6,40 @@ on:
       - opened
 
 jobs:
-  assign_to_milestone:
+  assign_to_backlog_milestone:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Check issue title for keywords
-        id: check_keywords
-        run: |
-          title="${{ github.event.issue.title }}"
-          if [[ $title == *M1* ]]; then
-            milestone_number=1
-          elif [[ $title == *M2* ]]; then
-            milestone_number=2
-          elif [[ $title == *M3* ]]; then
-            milestone_number=3     
-          elif [[ $title == *M4* ]]; then
-            milestone_number=5
-          elif [[ $title == *M6* ]]; then
-            milestone_number=7
-          elif [[ $title == *Backlog* ]]; then
-            milestone_number=7
-          # Add more conditions for other keywords and milestones as needed
-          else
-            milestone_number=null
-          fi
-          echo ::set-output name=milestone_number::$milestone_number
+      - name: Check if issue title contains "Backlog:"
+        id: check_title
+        run: echo ::set-output name=contains_backlog::$(echo "${{ github.event.issue.title }}" | grep -c "Backlog:")
 
-      - name: Assign to Milestone
-        if: steps.check_keywords.outputs.milestone_number != 'null'
+      - name: Assign to Milestone 7 (Backlog)
+        if: steps.check_title.outputs.contains_backlog == '1'
         run: |
           GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER=${{ github.event.issue.number }}
           REPO_OWNER=${{ github.repository_owner }}
           REPO_NAME=${{ github.repository }}
-          MILESTONE_NUMBER=${{ steps.check_keywords.outputs.milestone_number }}
           
-          echo "Assigning issue $ISSUE_NUMBER to Milestone $MILESTONE_NUMBER"
+          echo "Assigning issue $ISSUE_NUMBER to Milestone 7 (Backlog)"
           curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
-            -d "{\"milestone\": $MILESTONE_NUMBER}" \
+            -d "{\"milestone\": 7}" \
             "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/issues/$ISSUE_NUMBER"
+
+             - name: Check if issue title contains "M1"
+               id: check_title
+               run: echo ::set-output name=contains_backlog::$(echo "${{ github.event.issue.title }}" | grep -c "M1")
+        
+             - name: Assign to Milestone 1 (FY23 Milestone 1: Develop and administer Asana)
+               if: steps.check_title.outputs.contains_backlog == '1'
+               run: |
+                 GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+                 ISSUE_NUMBER=${{ github.event.issue.number }}
+                 REPO_OWNER=${{ github.repository_owner }}
+                 REPO_NAME=${{ github.repository }}
+                
+                 echo "Assigning issue $ISSUE_NUMBER to Milestone 7 (Backlog)"
+                 curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
+                   -d "{\"milestone\": 1}" \
+                   "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/issues/$ISSUE_NUMBER"
