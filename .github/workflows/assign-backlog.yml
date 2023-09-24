@@ -1,31 +1,31 @@
-name: Assign Backlog Issues to Milestone
+name: Assign Backlog Milestone on Status Change
 
 on:
-  issues:
+  project_card:
     types:
-      - opened
+      - moved
 
 jobs:
-  assign_backlog_issue:
+  assign_backlog_milestone:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check if issue title contains "Backlog:"
-        id: check_issue_title
+      - name: Check if card moved to "Backlog" column
+        id: check_card_column
         run: |
-          issue_title="${{ github.event.issue.title }}"
-          if [[ $issue_title == *Backlog:* ]]; then
-            echo "::set-output name=assign_issue::true"
+          card_column_name="${{ github.event.project_card.column_name }}"
+          if [[ $card_column_name == "Backlog" ]]; then
+            echo "::set-output name=assign_milestone::true"
           else
-            echo "::set-output name=assign_issue::false"
+            echo "::set-output name=assign_milestone::false"
           fi
 
       - name: Assign Issue to Milestone
-        if: steps.check_issue_title.outputs.assign_issue == 'true'
+        if: steps.check_card_column.outputs.assign_milestone == 'true'
         run: |
           token="${{ secrets.GITHUB_TOKEN }}"
           repo="${{ github.repository }}"
-          issue_number="${{ github.event.issue.number }}"
+          issue_number="${{ github.event.project_card.content_url | split('/') | last }}"
           milestone="Backlog"
 
           curl -X POST -H "Authorization: token $token" \
