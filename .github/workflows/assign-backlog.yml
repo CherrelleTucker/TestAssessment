@@ -1,33 +1,28 @@
-name: Assign Backlog Issues to Milestone
+name: Assign Backlog Issues to Milestone 7
 
 on:
   issues:
     types:
-      - opened
+      - created
 
 jobs:
-  assign_backlog_issue:
+  assign_to_backlog_milestone:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Check if issue title contains Backlog:
-        id: check_issue_title
-        run: |
-          issue_title="${{ github.event.issue.title }}"
-          if [[ $issue_title == Backlog: ]]; then
-            echo "::set-output name=assign_issue::true"
-          else
-            echo "::set-output name=assign_issue::false"
-          fi
+      - name: Check if issue title contains "Backlog:"
+        id: check_title
+        run: echo ::set-output name=contains_backlog::$(echo "${{ github.event.issue.title }}" | grep -c "Backlog:")
 
-      - name: Assign Issue to Milestone
-        if: steps.check_issue_title.outputs.assign_issue == 'true'
+      - name: Assign to Milestone 7 (Backlog)
+        if: steps.check_title.outputs.contains_backlog == '1'
         run: |
-          token="${{ secrets.GITHUB_TOKEN }}"
-          repo="${{ github.repository }}"
-          issue_number="${{ github.event.issue.number }}"
-          milestone=Backlog
-
-          curl -X POST -H "Authorization: token $token" \
-            -H "Accept: application/vnd.github.v3+json" \
-            "https://api.github.com/repos/$repo/issues/$issue_number/milestones/$milestone"
+          GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER=${{ github.event.issue.number }}
+          REPO_OWNER=${{ github.repository_owner }}
+          REPO_NAME=${{ github.repository }}
+          
+          echo "Assigning issue $ISSUE_NUMBER to Milestone 7 (Backlog)"
+          curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
+            -d "{\"milestone\": 7}" \
+            "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/issues/$ISSUE_NUMBER"
