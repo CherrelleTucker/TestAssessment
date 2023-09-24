@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check if issue milestone is "Backlog"
+      - name: Check if issue milestone is Backlog
         id: check_milestone
         run: |
           issue_milestone="${{ github.event.changes.milestone.from }}"
-          if [[ $issue_milestone == "Backlog" ]]; then
+          if [[ $issue_milestone == Backlog ]]; then
             echo "::set-output name=update_project_card::true"
           else
             echo "::set-output name=update_project_card::false"
