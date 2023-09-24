@@ -1,33 +1,36 @@
-name: Assign Backlog Milestone on Status Change
+name: Update Project Card Status
 
 on:
-  project_card:
+  issues:
     types:
-      - moved
+      - edited
 
 jobs:
-  assign_backlog_milestone:
+  update_project_card_status:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check if card moved to "Backlog" column
-        id: check_card_column
+      - name: Check if issue milestone is "Backlog"
+        id: check_milestone
         run: |
-          card_column_name="${{ github.event.project_card.column_name }}"
-          if [[ $card_column_name == "Backlog" ]]; then
-            echo "::set-output name=assign_milestone::true"
+          issue_milestone="${{ github.event.changes.milestone.from }}"
+          if [[ $issue_milestone == "Backlog" ]]; then
+            echo "::set-output name=update_project_card::true"
           else
-            echo "::set-output name=assign_milestone::false"
+            echo "::set-output name=update_project_card::false"
           fi
 
-      - name: Assign Issue to Milestone
-        if: steps.check_card_column.outputs.assign_milestone == 'true'
+      - name: Update Project Card Status
+        if: steps.check_milestone.outputs.update_project_card == 'true'
         run: |
           token="${{ secrets.GITHUB_TOKEN }}"
-          repo="${{ github.repository }}"
-          issue_number="${{ github.event.project_card.content_url | split('/') | last }}"
-          milestone="Backlog"
+          project_card_id="${{ github.event.issue.project_card_id }}"
+          new_column_name="Backlog"
 
           curl -X POST -H "Authorization: token $token" \
-            -H "Accept: application/vnd.github.v3+json" \
-            "https://api.github.com/repos/$repo/issues/$issue_number/milestones/$milestone"
+            -H "Accept: application/vnd.github.inertia-preview+json" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "column_id": "'"$new_column_name"'"
+            }' \
+            "https://api.github.com/projects/columns/cards/$project_card_id/moves"
