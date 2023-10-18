@@ -1,7 +1,7 @@
 name: Issue
 description: Create an Issue
 title: MQ(TaskA.Subtask1) ISSUE TITLE
-projects: Test Assessment
+projects: Cherrelle Tucker/3
 body:
   - type: markdown
     attributes:
