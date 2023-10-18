@@ -1,26 +1,24 @@
-name: Issue
+name: New Issue Form 
 description: Create an Issue
-title: MQ(TaskA.Subtask1) ISSUE TITLE
-projects: Cherrelle Tucker/3
+title: ISSUE TITLE
+projects: NASA-IMPACT/# ##replace with desired project that you would like the issues to be automatically added to. Format as project/board number
 body:
   - type: markdown
-    attributes:
-      value: |
-        This is the Issue template! The values you add will be converted to a properly formatted Issue for the Test Assessment Project.
+    attributes: 
+      value: | ##Replace <Project Name> with your project name
+        This is the Issue template! The values you add will be converted to a properly formatted Issue for the <Project Name> Project. 
   - type: dropdown
     id: Milestones
     attributes:
       label: Milestone
       description: What Milestone does this issue apply to? If issue is unrelated to previously listed Milestones, select External Work Request and provide full details and justification.
-      options:
-        - M1 (Develop and administer Asana)
-        - M2 (Develop and administer the Report Generation Tool (RGT))
-        - M3 (Support tri-agency SNWG assessment teams)
-        - M4 (Contribute to NASAs OMB presentation)
-        - M5 (Support NASAs SNWG principal)
-        - M6 (Conduct lessons learned retrospective)
-        - Backlog
-        - External Work Request
+      options: ## replace with desired milestones
+        - FY24 M1 (Milestone Title)
+        - FY24 M2 (Milestone Title)
+        - FY24 M3 (Milestone Title)
+        - FY24 M4 (Milestone Title)
+        - FY24 M5 (Milestone Title)
+        - External Work Request (No Milestone affiliation)
       default: 0
     validations:
       required: true
@@ -35,7 +33,7 @@ body:
         - Q2 (1 Jan to 31 Mar)
         - Q3 (1 Apr to 30 Jun)
         - Q4 (1 Jul to 30 Sep)
-      default: 0
+      default: 1
     validations:
       required: true
   - type: textarea
@@ -54,11 +52,20 @@ body:
     validations:
       required: true
   - type: textarea
+    id: Examples
+    attributes:
+      label: Examples or References
+      description: if applicable, include examples of work that the issue will result in or references to use in development.
+      placeholder: This type of document is what I am looking for...
+          Use these files when developing your solution...
+    validations:
+      required: false
+  - type: textarea
     id: deliverable
     attributes:
       label: Deliverable
-      description: Acceptance Criteria in the form of a tasklist. Once the issue has been created, individual tasks can be converted to issues if needed.  
-      value: "- [ ]"
+      description: Acceptance Criteria in the form of a tasklist. Once the issue has been created, individual tasks can be converted to issues if needed. 
+      value: "- [ ] "
     validations:
       required: true
   - type: textarea
@@ -75,7 +82,8 @@ body:
     attributes:
       label: Related Issues
       description: |
+        Add cards on which this issue depends
         Github automatically provides a list of possible issues if you start by typing a `#`
-      placeholder: related issues here if applicable
+      placeholder: depends on
     validations:
       required: false
